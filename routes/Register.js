@@ -10,7 +10,6 @@ const dbConfig = require('../dbConfig.js');
 router.post('/createuser', [
   body('name', 'Enter a valid name').isLength({ min: 3 }),
   body('email', 'Enter a valid email').isEmail(),
-  body('phonenumber','Enter a Phone Number').isInt(),
   body('phonenumber','Enter a Valid Number').isLength({max:10, min:10}),
   body('password', 'Enter a 8 characters').isLength({ min: 8 }),
   body('password','Entera a Strong password').isStrongPassword(),
