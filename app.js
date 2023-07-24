@@ -2,16 +2,16 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 
-const dbConfig = require('./dbConfig'); // Replace './dbConfig' with the correct path to your database configuration file
+const dbConfig = require('./dbConfig'); 
 
 app.use(bodyParser.json());
 
-// Test the database connection
+
 dbConfig
   .getConnection()
   .then((connection) => {
     console.log('Database pool is connected!');
-    connection.release(); // Release the connection back to the pool
+    connection.release(); 
   })
   .catch((err) => {
     console.error('Error connecting to the database:', err);

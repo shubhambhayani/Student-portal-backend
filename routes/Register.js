@@ -22,7 +22,6 @@ router.post('/createuser', [
     return res.status(400).json({ success, errors: errors.array() });
   }
   try {
-    // Check if the email already exists
     const [rows] = await dbConfig.execute('SELECT * FROM users WHERE email = ?', [req.body.email]);
     const user = rows[0];
     if (user) {
@@ -33,7 +32,6 @@ router.post('/createuser', [
     const salt = await bcrypt.genSalt(10);
     const secPass = await bcrypt.hash(req.body.password, salt);
 
-    // Create the user
     const [result] = await dbConfig.execute('INSERT INTO users (name,email,phonenumber,password) VALUES (?,?,?,?)', [
       req.body.name,
       req.body.email,
