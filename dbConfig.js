@@ -5,9 +5,9 @@ const dbConfig = mysql.createPool({
   user: process.env.DB_USER,
   password:process.env.DB_PASSWORD,
   database: process.env.DB,
-  waitForConnections: DB_WAIT_FOR_CONNECTIONS,
-  connectionLimit:DB_CONNECTION_LIMITS ,
-  queueLimit:DB_QUEUE_LIMIT,
+  waitForConnections:process.env.DB_WAIT_FOR_CONNECTIONS,
+  connectionLimit:process.env.DB_CONNECTION_LIMITS ,
+  queueLimit:process.env.DB_QUEUE_LIMIT,
 });
 
 module.exports = dbConfig;
