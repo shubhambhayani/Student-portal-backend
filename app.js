@@ -25,7 +25,11 @@ app.use('/api/users', userRoutes);
 const Register=require('./routes/Register');
 app.use('/api/auth',Register)
 
-const port = 3000;
+const port = 5000;
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
+
+app.get('/',(req,res)=>{
+    res.status(200).send("Server Running👍")
+})
 });
