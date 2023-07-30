@@ -1,6 +1,6 @@
 var  jwt=require('jsonwebtoken');
 const dbConfig = require('../../dbConfig');
-const JWT_SECRET="shubham@bhayani";
+const JWT_SECRET=process.env.JWT_SECRET;
 
 
 const Fetchuser= (requiredRole) => {
