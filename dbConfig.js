@@ -1,8 +1,8 @@
 const mysql = require('mysql2/promise');
 
 const dbConfig = mysql.createPool({
-  host: 'localhost',
-  user: 'root',
+  host: '103.251.19.59',
+  user: 'root@localhost',
   password: '',
   database: 'sudentdb',
   waitForConnections: true,
