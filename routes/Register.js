@@ -52,7 +52,7 @@ router.post('/createuser', [
     console.error(error.message);
     res.status(500).send('Some error occurred');
   }
-});
+  });
 
   const validateCredentials = async (req, res, next) => {
     const {credentials,password } = req.body;

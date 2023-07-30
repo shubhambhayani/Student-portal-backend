@@ -6,8 +6,8 @@ const dbConfig = mysql.createPool({
   password: '',
   database: 'sudentdb',
   waitForConnections: true,
-  connectionLimit: 10,
-  queueLimit: 0,
+  connectionLimit:10,
+  queueLimit:0,
 });
 
 module.exports = dbConfig;

@@ -1,17 +1,19 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
+const cors = require('cors');
 
-const dbConfig = require('./dbConfig'); 
-
+const dbConfig = require('./dbConfig');
+ 
+app.use(cors());
 app.use(bodyParser.json());
 
 
 dbConfig
   .getConnection()
   .then((connection) => {
-    console.log('Database pool is connected!');
-    connection.release(); 
+    console.log('Database pool is connected👍');
+    connection.release();
   })
   .catch((err) => {
     console.error('Error connecting to the database:', err);

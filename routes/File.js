@@ -1,13 +1,15 @@
 const express = require('express');
 const router = express.Router();
 const dbConfig = require('../dbConfig'); 
-const fetchuser=require('../routes/middleware/Fetchuser');
+const Fetchuser=require('../routes/middleware/Fetchuser');
 const multer = require('multer');
+const ROLES=require('./middleware/constants')
+
 
 const fs =require('fs')
 const upload = multer({ dest: 'uploads/' });
 
-router.post('/upload',fetchuser, upload.single('document'), async (req, res) => {
+router.post('/upload', Fetchuser(ROLES.ADMIN), upload.single('document'), async (req, res) => {
       const description = req.body.description;
       const file = req.file;
     
@@ -47,7 +49,7 @@ router.post('/upload',fetchuser, upload.single('document'), async (req, res) => 
       }
     });
 
-    router.get('/getDocuments',fetchuser, async (req, res) => {
+    router.get('/getDocuments',Fetchuser(ROLES.ADMIN), async (req, res) => {
           try {
             const query = 'SELECT * FROM tbl_documents';
             const [rows] = await dbConfig.query(query);
