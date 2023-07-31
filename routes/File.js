@@ -49,7 +49,7 @@ router.post('/upload', Fetchuser(ROLES.ADMIN), upload.single('document'), async 
       }
     });
 
-    router.get('/getDocuments',Fetchuser(ROLES.ADMIN), async (req, res) => {
+    router.get('/getDocuments', async (req, res) => {
           try {
             const query = 'SELECT * FROM tbl_documents';
             const [rows] = await dbConfig.query(query);
